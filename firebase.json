@@ -1,0 +1,33 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "shoply-app-99339",
+          "appId": "1:630458810656:android:b947cf203e1fdc58415745",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "shoply-app-99339",
+          "appId": "1:630458810656:ios:3ea543e7fc246791415745",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "shoply-app-99339",
+          "configurations": {
+            "android": "1:630458810656:android:b947cf203e1fdc58415745",
+            "ios": "1:630458810656:ios:3ea543e7fc246791415745"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}
