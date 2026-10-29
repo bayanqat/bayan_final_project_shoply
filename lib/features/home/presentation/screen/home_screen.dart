@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/routes/app_pages.dart';
+import '../../../../core/utils/theme/app_palette.dart';
 import '../../../../core/utils/widgets/app_bar/custom_app_bar.dart';
 import '../../../../core/utils/widgets/empty_screen/empty_screen.dart';
 import '../../../../core/utils/widgets/loading/custom_loading_data.dart';
@@ -14,7 +15,6 @@ import '../bloc/cubit.dart';
 import '../bloc/state.dart';
 import '../widgets/home_banner.dart';
 import '../widgets/home_categories_list.dart';
-import '../../../../core/utils/theme/app_palette.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -47,10 +47,7 @@ class HomeScreen extends StatelessWidget {
                 child: ListView(
                   padding: EdgeInsets.symmetric(vertical: 12.h),
                   children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 18.w),
-                      child: HomeBanner(onShopNow: () => _openAllProducts(context)),
-                    ),
+                    HomeBanner(categories: state.categories),
                     SizedBox(height: 20.h),
                     CustomViewAll(
                       text: 'Categories',

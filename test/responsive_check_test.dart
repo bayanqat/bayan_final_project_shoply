@@ -10,7 +10,10 @@ import 'package:final_project_shoply/features/cart/presentation/widgets/cart_bot
 import 'package:final_project_shoply/features/cart/presentation/widgets/cart_item_card.dart';
 import 'package:final_project_shoply/features/change_password/presentation/screen/change_password_screen.dart';
 import 'package:final_project_shoply/features/drawer/presentation/screen/drawer_menu.dart';
+import 'package:final_project_shoply/data/entities/category_entity.dart';
 import 'package:final_project_shoply/features/favorite/presentation/bloc/cubit.dart';
+import 'package:final_project_shoply/features/home/presentation/bloc/cubit.dart';
+import 'package:final_project_shoply/features/home/presentation/widgets/home_banner.dart';
 import 'package:final_project_shoply/features/my_orders/domain/entities/order_entity.dart';
 import 'package:final_project_shoply/features/my_orders/presentation/widgets/order_card.dart';
 import 'package:final_project_shoply/features/product_details/presentation/screen/product_details_screen.dart';
@@ -102,6 +105,21 @@ final screens = <String, Widget Function()>{
     ),
   ),
   'Drawer': () => const Scaffold(body: DrawerMenu()),
+  'Home banner': () => Scaffold(
+    body: BlocProvider(
+      create: (_) => HomeCubit(),
+      child: ListView(
+        children: const [
+          HomeBanner(
+            categories: [
+              CategoryEntity(id: 'electronics', name: 'Electronics Accessories', image: ''),
+              CategoryEntity(id: 'shoes', name: 'Shoes', image: ''),
+            ],
+          ),
+        ],
+      ),
+    ),
+  ),
 };
 
 void main() {
