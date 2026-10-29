@@ -34,6 +34,13 @@
 | **Light** | <img src="assets/screenshots/favorites_light.png" width="200"> | <img src="assets/screenshots/cart_light.png" width="200"> | <img src="assets/screenshots/my_orders_light.png" width="200"> | <img src="assets/screenshots/settings_light.png" width="200"> |
 | **Dark** | <img src="assets/screenshots/favorites_dark.png" width="200"> | <img src="assets/screenshots/cart_dark.png" width="200"> | <img src="assets/screenshots/my_orders_dark.png" width="200"> | <img src="assets/screenshots/settings_dark.png" width="200"> |
 
+### Notifications & support
+
+| | Notifications | Contact Us |
+|:-:|:-:|:-:|
+| **Light** | <img src="assets/screenshots/notifications_light.png" width="200"> | <img src="assets/screenshots/contact_us_light.png" width="200"> |
+| **Dark** | <img src="assets/screenshots/notifications_dark.png" width="200"> | <img src="assets/screenshots/contact_us_dark.png" width="200"> |
+
 ### Legal
 
 | Terms & Conditions | Privacy Policy |
@@ -43,14 +50,15 @@
 ## Features
 
 - **Account** — sign up with a profile photo, email verification, login, forgot password (reset link by email), change password, update profile, logout.
-- **Home** — promo banner, category list and trending products.
+- **Home** — a banner slider with one slide per category (tap a slide to open that category), category list and trending products.
 - **Categories & products** — every category from Firestore, its products in a grid, and a details page with rating, description and quantity picker.
 - **Favorites** — tap the heart on any product; the list is saved per user in Firestore.
 - **Cart** — change quantities, remove items, see the total, and check out to create an order.
 - **My Orders** — every order with its status (Pending, Approved, Delivered), filtered by All / Active / Completed, with an item breakdown.
+- **Notifications** — the bell on Home lists a notification for every order placed; new ones are marked with a dot.
 - **Badges** — the Favorite and Cart tabs show how many items each one holds.
 - **Dark mode** — switch in Settings; follows the phone setting until you choose.
-- **Content screens** — About, Contact Us (messages are saved to Firestore), Privacy Policy and Terms & Conditions, all loaded from Firestore.
+- **Content screens** — About, Contact Us (messages are saved to Firestore; tap the support email to copy it), Privacy Policy and Terms & Conditions, all loaded from Firestore.
 - **Responsive** — sizes scale with `flutter_screenutil`; checked on screens from iPhone SE to iPad.
 
 ## Tech stack
@@ -80,7 +88,7 @@ lib/
 ```
 
 Features: `auth` (login, signup, forgot password), `home`, `category`, `products`, `product_details`,
-`favorite`, `cart`, `my_orders`, `drawer`, `settings`, `update_profile`, `change_password`, `about`,
+`favorite`, `cart`, `my_orders`, `notifications`, `drawer`, `settings`, `update_profile`, `change_password`, `about`,
 `contact_us`, `legal`, `theme`, `main_shell` (bottom navigation).
 
 ## Firestore data
@@ -90,6 +98,7 @@ Features: `auth` (login, signup, forgot password), `home`, `category`, `products
 | `users/{uid}` | profile (name, username, email, address, photo) |
 | `users/{uid}/favorites/{productId}` | the user's favorite products |
 | `users/{uid}/cart/{productId}` | cart items with quantity |
+| `users/{uid}/notifications` | notifications (one per order placed) |
 | `categories`, `products` | the catalog |
 | `orders` | placed orders with status |
 | `contact_messages` | messages sent from Contact Us |

@@ -13,6 +13,7 @@ import '../../../main_shell/presentation/bloc/cubit.dart';
 import '../../../products/presentation/widgets/products_grid.dart';
 import '../bloc/cubit.dart';
 import '../bloc/state.dart';
+import '../widgets/home_app_bar_title.dart';
 import '../widgets/home_banner.dart';
 import '../widgets/home_categories_list.dart';
 
@@ -28,13 +29,22 @@ class HomeScreen extends StatelessWidget {
       create: (context) => HomeCubit()..getHomeData(),
       child: Scaffold(
         appBar: CustomAppBar(
-          titleText: 'Shoply',
+          title: HomeAppBarTitle(),
           leading: IconButton(
             onPressed: () {
               Scaffold.of(shellContext).openDrawer();
             },
             icon: Icon(Icons.menu, size: 28.sp, color: context.colors.textPrimary),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, AppPages.notificationsScreen);
+              },
+              icon: Icon(Icons.notifications_none, size: 28.sp, color: context.colors.textPrimary),
+            ),
+          ],
+          actionsPadding: EdgeInsets.only(right: 6.w),
         ),
         body: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {

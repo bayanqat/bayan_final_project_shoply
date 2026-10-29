@@ -40,7 +40,8 @@ class CartRemoteDataSource {
     await _cart.doc(productId).delete();
   }
 
-  /// Creates the order and empties the cart in one batch, returns the order number
+  /// Creates the order, adds a notification and empties the cart in one batch,
+  /// returns the order number
   Future<int> checkout({required List<CartItemModel> items}) async {
     final firestore = FirebaseFirestore.instance;
     final batch = firestore.batch();
@@ -69,6 +70,18 @@ class CartRemoteDataSource {
       'totalPrice': totalPrice,
       'createdAt': FieldValue.serverTimestamp(),
     });
+    // Shows up in the Notifications screen
+    batch.set(
+      FirestoreService.currentUserDoc().collection(FirestoreCollections.notifications).doc(),
+      {
+        'title': 'Order placed',
+        'body':
+            'Your order #$orderNumber with $itemsCount ${itemsCount == 1 ? 'item' : 'items'} is pending.',
+        'type': 'order',
+        'isRead': false,
+        'createdAt': FieldValue.serverTimestamp(),
+      },
+    );
     for (final item in items) {
       batch.delete(_cart.doc(item.product.id));
     }

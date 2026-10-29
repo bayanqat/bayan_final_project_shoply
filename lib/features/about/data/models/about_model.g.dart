@@ -13,9 +13,10 @@ _AboutModel _$AboutModelFromJson(Map<String, dynamic> json) => _AboutModel(
   footer: json['footer'] as String?,
 );
 
-Map<String, dynamic> _$AboutModelToJson(_AboutModel instance) => <String, dynamic>{
-  'appName': instance.appName,
-  'version': instance.version,
-  'tagline': instance.tagline,
-  'footer': instance.footer,
-};
+Map<String, dynamic> _$AboutModelToJson(_AboutModel instance) =>
+    <String, dynamic>{
+      'appName': instance.appName,
+      'version': instance.version,
+      'tagline': instance.tagline,
+      'footer': instance.footer,
+    };

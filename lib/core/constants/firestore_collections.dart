@@ -5,6 +5,7 @@ class FirestoreCollections {
   static const String legacyUsers = 'User';
   static const String favorites = 'favorites';
   static const String cart = 'cart';
+  static const String notifications = 'notifications';
   static const String categories = 'categories';
   static const String products = 'products';
   static const String orders = 'orders';

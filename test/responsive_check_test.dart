@@ -15,6 +15,8 @@ import 'package:final_project_shoply/features/favorite/presentation/bloc/cubit.d
 import 'package:final_project_shoply/features/home/presentation/bloc/cubit.dart';
 import 'package:final_project_shoply/features/home/presentation/widgets/home_banner.dart';
 import 'package:final_project_shoply/features/my_orders/domain/entities/order_entity.dart';
+import 'package:final_project_shoply/features/notifications/domain/entities/notification_entity.dart';
+import 'package:final_project_shoply/features/notifications/presentation/widgets/notification_item.dart';
 import 'package:final_project_shoply/features/my_orders/presentation/widgets/order_card.dart';
 import 'package:final_project_shoply/features/product_details/presentation/screen/product_details_screen.dart';
 import 'package:final_project_shoply/features/products/presentation/widgets/products_grid.dart';
@@ -105,6 +107,20 @@ final screens = <String, Widget Function()>{
     ),
   ),
   'Drawer': () => const Scaffold(body: DrawerMenu()),
+  'Notification': () => Scaffold(
+    body: ListView(
+      children: [
+        NotificationItem(
+          notification: NotificationEntity(
+            title: 'Order placed',
+            body: 'Your order #933263 with 12 items is pending.',
+            type: 'order',
+            createdAt: DateTime(2026, 10, 29),
+          ),
+        ),
+      ],
+    ),
+  ),
   'Home banner': () => Scaffold(
     body: BlocProvider(
       create: (_) => HomeCubit(),

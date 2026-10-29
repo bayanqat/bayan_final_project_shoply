@@ -16,4 +16,5 @@ class AppPages {
   static const String contactUsScreen = '/ContactUsScreen';
   static const String privacyPolicyScreen = '/PrivacyPolicyScreen';
   static const String termsConditionsScreen = '/TermsConditionsScreen';
+  static const String notificationsScreen = '/NotificationsScreen';
 }

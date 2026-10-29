@@ -15,6 +15,7 @@ import '../../features/legal/presentation/screen/terms_conditions_screen.dart';
 import '../../features/main_shell/presentation/bloc/cubit.dart';
 import '../../features/main_shell/presentation/screen/main_shell.dart';
 import '../../features/my_orders/presentation/screen/my_orders_screen.dart';
+import '../../features/notifications/presentation/screen/notifications_screen.dart';
 import '../../features/onboarding/presentation/screen/on_boarding_screen.dart';
 import '../../features/product_details/presentation/screen/product_details_screen.dart';
 import '../../features/products/presentation/screen/products_screen.dart';
@@ -137,6 +138,13 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) {
             return const TermsConditionsScreen();
+          },
+        );
+
+      case AppPages.notificationsScreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const NotificationsScreen();
           },
         );
     }
